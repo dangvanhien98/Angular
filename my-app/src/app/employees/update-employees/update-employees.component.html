@@ -1,0 +1,36 @@
+<!-- create employee -->
+<div>
+    <h1>Update Employee</h1>
+    <form [formGroup]="UpdateEmployeeForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-group">
+            <label>id</label>
+            <input type="text" formControlName="id" required [(ngModel)]="employee.id" class="form-control"
+                maxlength="20">
+        </div>
+        <div class="form-group">
+            <label>name</label>
+            <input class="form-control" formControlName="name" required [(ngModel)]="employee.name" rows="3"
+                maxlength="50">
+        </div>
+        <div class="form-group">
+            <label>city</label>
+            <input type="text" formControlName="city" required [(ngModel)]="employee.city" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>gender</label>
+            <!-- <input type="text" formControlName="gender" required [(ngModel)]="employee.gender" class="form-control"> -->
+            <select formControlName="gender" class="form-control">
+                <option *ngFor="let gen of gender" selected>{{gen}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>department</label>
+            <input type="text" formControlName="department" required [(ngModel)]="employee.department"
+                class="form-control">
+        </div>
+        <button type="submit" class="btn btn-lg btn-block bg-success text-uppercase">Submit</button>
+        <a [routerLink]="['/employees/list']" class="btn btn-lg btn-block btn-primary text-uppercase"> Back</a>
+    </form>
+</div>

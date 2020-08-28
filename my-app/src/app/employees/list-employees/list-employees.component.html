@@ -1,0 +1,31 @@
+<!-- // list-employees.component.html  -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.city}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.department}}</td>
+            <td>
+                <a [routerLink]="['/employees/update', employee.id]" class="glyphicon glyphicon-cog"></a> 
+                &nbsp;&nbsp;
+                <button type="button" (click)="deleteEmployee(employee.id)" class="glyphicon glyphicon-trash"></button>
+                &nbsp;&nbsp;
+                <a [routerLink]="['/employees/detail', employee.id]" class="glyphicon glyphicon-list-alt"></a> 
+            </td>
+        </tr>
+        <router-outlet></router-outlet>
+    </tbody>
+    
+</table>

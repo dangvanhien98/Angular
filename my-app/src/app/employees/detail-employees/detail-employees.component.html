@@ -1,0 +1,28 @@
+<!-- create employee -->
+<div>
+    <h1>Detail Employee</h1>
+    <form [formGroup]="detailEmployeeForm" novalidate>
+        <div class="form-group">
+            <label>id</label>
+            <input type="text" formControlName="id" required [(ngModel)]="employee.id" class="form-control" maxlength="20">
+        </div>
+        <div class="form-group">
+            <label>name</label>
+            <input class="form-control" formControlName="name" required [(ngModel)]="employee.name" rows="3" maxlength="50">
+        </div>
+        <div class="form-group">
+            <label>city</label>
+            <input type="text" formControlName="city" required [(ngModel)]="employee.city" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>gender</label>
+            <input type="text" formControlName="gender" required [(ngModel)]="employee.gender" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>department</label>
+            <input type="text" formControlName="department" required [(ngModel)]="employee.department" class="form-control">
+        </div>
+        <a [routerLink]="['/employees/list']" class="btn btn-lg btn-block btn-primary text-uppercase"> Back</a> 
+    </form>
+  
+</div>

@@ -1,0 +1,26 @@
+<!-- app.component.html  -->
+<!-- <div class = "container"> 
+    <nav class = "navbar navbar-default"> 
+        <ul class = "nav navbar-nav">
+          <a [routerLink]="['employees/list']" class="btn btn-lg btn-block btn-light text-uppercase"> Danh sách nhân viên</a> 
+          <a [routerLink]="['employees/create']" class="btn btn-lg btn-block btn-light text-uppercase"> Thêm nhân viên</a> 
+        </ul> 
+    </nav> 
+    <router-outlet></router-outlet>    
+</div> -->
+
+<div class="container">
+  <ul>
+    <li>
+      <a [routerLink]="['employees/list']" class="dropbtn"> Home</a></li>
+    <li>
+      <a [routerLink]="['employees/list']" class="dropbtn"> List Employees</a>
+    </li>
+    <li class="dropdown">
+      <a [routerLink]="['employees/create']" class="dropbtn"> Create new
+        employee</a>
+    </li>
+
+  </ul>
+  <router-outlet></router-outlet>
+</div>
