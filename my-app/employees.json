@@ -4,14 +4,14 @@
       "id": 1,
       "name": "Đặng Văn Hiền 1",
       "city": "Mumbai",
-      "gender": "Other",
+      "gender": "Male",
       "department": "Web"
     },
     {
       "id": "3",
       "name": "Dang Hiền",
       "city": "DN",
-      "gender": "Other",
+      "gender": "Male",
       "department": "DEV"
     },
     {

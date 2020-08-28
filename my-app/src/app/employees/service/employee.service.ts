@@ -24,6 +24,11 @@ export class EmployeeService{
         return this.httpClient.get(`${this.API_URL}`);
     }
 
+    //get all pagination
+    getAllPagination(params): Observable<any>{
+        return this.httpClient.get(this.API_URL,{params});
+    }
+
     //create employee
     createEmployee(employee: Employee): Observable<Employee>{
         if(employee.name == ''){
@@ -59,6 +64,12 @@ export class EmployeeService{
         const url = `${this.API_URL}/${id}`;
         return this.httpClient.get<Employee>(url);
     }
+
+    //gey employee by name
+    getEmployeeByName(name: String){
+        const url = `${this.API_URL}/${name}`;
+        return this.httpClient.get(url);
+    } 
 
     errorHandler(error){
         let errorMessage = '';

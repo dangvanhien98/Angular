@@ -9,14 +9,26 @@ import {Employee} from '../model/employee.model';
 })
 export class ListEmployeesComponent implements OnInit {
 
+  searchName: String;
+
+  currentTutorial = null;
+  currentIndex = -1;
+  title = '';
+
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
+
   employees: Employee[];
 
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.getEmployees();
-  
+    this.retrieveEmployees();
   }
+
 
   public getEmployees(){
     this.employeeService.getEmployees().subscribe((data: Employee[]) =>{
@@ -31,5 +43,56 @@ export class ListEmployeesComponent implements OnInit {
       this.employees = this.employees.filter(i => i.id !== id);
     }
     return false;
+  }
+
+  // public getEmployeeByName(name){
+  //   this.employeeService.getEmployeeByName(name).subscribe((data: Employee[]) => {
+  //     this.employees =data;
+  //   })
+  // }
+  getRequestParams(searchTitle, page, pageSize): any {
+    // tslint:disable-next-line:prefer-const
+    let params = {};
+
+    if (searchTitle) {
+      params[`title`] = searchTitle;
+    }
+
+    if (page) {
+      params[`page`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+
+    return params;
+  }
+
+  retrieveEmployees(): void {
+    const params = this.getRequestParams(this.title, this.page, this.pageSize);
+
+    this.employeeService.getAllPagination(params)
+      .subscribe(
+        response => {
+          const { employees, totalItems } = response;
+          this.employees = response;
+          this.count = totalItems;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  handlePageChange(event): void {
+    this.page = event;
+    this.retrieveEmployees();
+  }
+
+  handlePageSizeChange(event): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrieveEmployees();
   }
 }

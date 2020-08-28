@@ -2,15 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http'; 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
 import { CreateEmployeesComponent } from './employees/create-employees/create-employees.component';
 import{EmployeeService} from './employees/service/employee.service'
+
 import {RouterModule, Routes} from '@angular/router';
 import { UpdateEmployeesComponent } from './employees/update-employees/update-employees.component';
 import { DetailEmployeesComponent } from './employees/detail-employees/detail-employees.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+//search filter
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+//pagination
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //each router maps a url path to a component
 //the 3rd route specifies the route to redirect to if the path
@@ -33,7 +39,7 @@ const appRoutes: Routes = [
     ListEmployeesComponent,
     CreateEmployeesComponent,
     UpdateEmployeesComponent,
-    DetailEmployeesComponent
+    DetailEmployeesComponent,
   ],
   imports: [
     BrowserModule,   
@@ -41,7 +47,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
