@@ -9,15 +9,12 @@ import {Employee} from '../model/employee.model';
 })
 export class ListEmployeesComponent implements OnInit {
 
-  searchName: String;
-
-  currentTutorial = null;
   currentIndex = -1;
-  title = '';
+  searchName = '';
 
   page = 1;
   count = 0;
-  pageSize = 3;
+  pageSize = 4;
   pageSizes = [3, 6, 9];
 
   employees: Employee[];
@@ -25,7 +22,7 @@ export class ListEmployeesComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.getEmployees();
+  //  this.getEmployees();
     this.retrieveEmployees();
   }
 
@@ -38,7 +35,7 @@ export class ListEmployeesComponent implements OnInit {
 
   public deleteEmployee(id){
     var x = confirm("Are you sure?")
-    if(x){      
+    if(x){
       this.employeeService.deleteEmployee(id).subscribe();
       this.employees = this.employees.filter(i => i.id !== id);
     }
@@ -50,12 +47,12 @@ export class ListEmployeesComponent implements OnInit {
   //     this.employees =data;
   //   })
   // }
-  getRequestParams(searchTitle, page, pageSize): any {
+  getRequestParams(searchName, page, pageSize): any {
     // tslint:disable-next-line:prefer-const
     let params = {};
 
-    if (searchTitle) {
-      params[`title`] = searchTitle;
+    if (searchName) {
+      params[`searchName`] = searchName;
     }
 
     if (page) {
@@ -70,15 +67,16 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   retrieveEmployees(): void {
-    const params = this.getRequestParams(this.title, this.page, this.pageSize);
+    const params = this.getRequestParams(this.searchName, this.page, this.pageSize);
 
     this.employeeService.getAllPagination(params)
       .subscribe(
         response => {
-          const { employees, totalItems } = response;
+          //const { employees, totalItems } = response;
           this.employees = response;
-          this.count = totalItems;
+          //this.count = totalItems;
           console.log(response);
+          console.log(this.count);
         },
         error => {
           console.log(error);

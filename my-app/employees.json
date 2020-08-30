@@ -4,36 +4,36 @@
       "id": 1,
       "name": "Đặng Văn Hiền 1",
       "city": "Mumbai",
-      "gender": "Male",
-      "department": "Web"
+      "gender": "FeMale",
+      "department": ""
     },
     {
       "id": "3",
       "name": "Dang Hiền",
       "city": "DN",
-      "gender": "Male",
-      "department": "DEV"
+      "gender": "Other",
+      "department": ""
     },
     {
       "id": "4",
       "name": "Dang Hiền 1",
       "city": "DH",
-      "gender": "Male",
-      "department": "dev"
+      "gender": "Other",
+      "department": ""
     },
     {
       "id": "5",
       "name": "Đặng Văn Hiền",
       "city": "Đà Nẵng",
       "gender": "FeMale",
-      "department": "DEV"
+      "department": ""
     },
     {
       "id": "7",
       "name": "adsasd",
       "city": "dadd",
       "gender": "Other",
-      "department": "ádasd"
+      "department": ""
     },
     {
       "id": "11",
