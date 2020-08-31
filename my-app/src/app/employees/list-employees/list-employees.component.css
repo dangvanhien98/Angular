@@ -1,17 +1,21 @@
-
-.list{
-  padding: 0;
-  margin:0;
+.list {
+    padding: 0;
+    margin: 0;
 }
 
-.search .input{
-  display: inline-block;
-  width: 90%;
-  padding-right: 5px;
-
+.search .input {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.search .button{
-  display: inline-block;
-  padding: 0;
+.items-page {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
+
+/* .search .button {
+    display: inline-block;
+} */

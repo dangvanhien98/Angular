@@ -17,6 +17,7 @@
         <div class="form-group">
             <label>gender</label>
             <select formControlName="gender" class="form-control" [(ngModel)]="employee.gender">
+                <option value="">--Choose gender--</option>  
               <option  *ngFor="let gen of gender" [selected]="employee.gender==gen">
                 {{gen}}
              </option>
@@ -25,9 +26,11 @@
 
         <div class="form-group">
             <label>department</label>
-            <select formControlName="department" class="form-control">
-                <option>Choose department</option>
-                <option *ngFor="let dep of department">{{dep}}</option>
+            <select formControlName="department" [(ngModel)]="employee.department" class="form-control">
+                <option value="">--Choose department--</option>
+                <option *ngFor="let dep of department" [selected] = "employee.department == dep">
+                    {{dep}}
+                </option>
             </select>
         </div>
         <button type="submit" class="btn btn-lg btn-block bg-success text-uppercase">Submit</button>

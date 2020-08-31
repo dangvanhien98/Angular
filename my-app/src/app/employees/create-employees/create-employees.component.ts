@@ -19,7 +19,6 @@ export class CreateEmployeesComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
-      id:[''],
       name:[''],
       city:[''],
       gender:[''],

@@ -14,8 +14,8 @@ export class ListEmployeesComponent implements OnInit {
 
   page = 1;
   count = 0;
-  pageSize = 4;
-  pageSizes = [3, 6, 9];
+  pageSize = 10;
+  pageSizes = [10, 20, 30];
 
   employees: Employee[];
 
