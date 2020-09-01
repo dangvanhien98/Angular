@@ -1,7 +1,7 @@
 <!-- // list-employees.component.html  -->
 
 <div class="list">
-    <div class="search">
+    <!-- <div class="search">
         <div class="input">
             <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="searchName" />
         </div>
@@ -12,46 +12,40 @@
         {{ size }}
       </option>
     </select>
-    </div>
+    </div> -->
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>City</th>
-                <th>Gender</th>
-                <th>Department</th>
-                <th>Action</th>
+                <th>Address</th>
+                <th>Create</th>
+                <th>modified</th>
+                <!-- <th>Action</th> -->
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="
-          let employee of employees
-            | filter: searchName
-            | paginate
-              : {
-                  itemsPerPage: pageSize,
-                  currentPage: page,
-                  totalItems: count
-                };
-          let i = index
-        " [class.active]="i == currentIndex">
-                <td>{{ employee.id }}</td>
-                <td>{{ employee.name }}</td>
-                <td>{{ employee.city }}</td>
-                <td>{{ employee.gender }}</td>
-                <td>{{ employee.department }}</td>
-                <td>
+            let com of companys">
+                <td>{{ com.company_owner_id }}</td>
+                <td>{{ com.name }}</td>
+                <td>{{ com.address }}</td>
+                <td>{{ com.created }}</td>
+                <td>{{ com.modified }}</td>
+                <!-- <td>
                     <a [routerLink]="['/employees/update', employee.id]" class="glyphicon glyphicon-cog"></a>
                     &nbsp;&nbsp;
                     <button type="button" (click)="deleteEmployee(employee.id)" class="glyphicon glyphicon-trash"></button> &nbsp;&nbsp;
                     <a [routerLink]="['/employees/detail', employee.id]" class="glyphicon glyphicon-list-alt"></a>
-                </td>
+                </td> -->
             </tr>
             <router-outlet></router-outlet>
         </tbody>
     </table>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <pagination-controls previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="handlePageChange($event)"></pagination-controls>
-    </div>
+    </div> -->
+    <p>
+        <span *ngFor="let item of arrayOne(pageSize); let i = index;"> <a [routerLink]="['/owner', i]">{{i}}</a> </span>
+    </p>
 </div>

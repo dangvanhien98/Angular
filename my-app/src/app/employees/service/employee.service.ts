@@ -1,17 +1,19 @@
 //employee.service.ts
 import{ Injectable} from '@angular/core'
-import {HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, empty, EMPTY } from 'rxjs';
+import {HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable} from 'rxjs';
 import { Employee } from '../model/employee.model';
 import {  throwError } from 'rxjs';
-import { catchError, isEmpty } from 'rxjs/operators'
-import { isNull } from '@angular/compiler/src/output/output_ast';
+import { catchError } from 'rxjs/operators'
 
 @Injectable({
     providedIn: 'root'
 })
 export class EmployeeService{
+
     API_URL = 'http://localhost:3000/employees';
+   // API_URL_TEST = 'http://localhost:3000/owner';
+
     constructor(private httpClient: HttpClient){}
 
     httpOptions = {
@@ -23,6 +25,10 @@ export class EmployeeService{
     getEmployees(){
         return this.httpClient.get(`${this.API_URL}`);
     }
+
+    // TestCompany(){
+    //     return this.httpClient.get(this.API_URL_TEST);
+    // }
 
     //get all pagination
     getAllPagination(params): Observable<any>{

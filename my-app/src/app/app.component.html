@@ -10,17 +10,20 @@
 </div> -->
 
 <div class="container">
-  <ul>
-    <li>
-      <a [routerLink]="['employees/list']" class="dropbtn"> Home</a></li>
-    <li>
-      <a [routerLink]="['employees/list']" class="dropbtn"> List Employees</a>
-    </li>
-    <li class="dropdown">
-      <a [routerLink]="['employees/create']" class="dropbtn"> Create new
+    <ul>
+        <li>
+            <a [routerLink]="['employees/list']" class="dropbtn"> Home</a></li>
+        <li>
+            <a [routerLink]="['employees/list']" class="dropbtn"> List Employees</a>
+        </li>
+        <li>
+            <a [routerLink]="['owner']" class="dropbtn"> List Company</a>
+        </li>
+        <li class="dropdown">
+            <a [routerLink]="['employees/create']" class="dropbtn"> Create new
         employee</a>
-    </li>
+        </li>
 
-  </ul>
-  <router-outlet></router-outlet>
+    </ul>
+    <router-outlet></router-outlet>
 </div>

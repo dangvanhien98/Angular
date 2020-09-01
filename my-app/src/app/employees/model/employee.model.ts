@@ -7,3 +7,4 @@ export interface Employee{
     gender: string;
     department: string;
 }
+

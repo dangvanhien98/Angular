@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
 import { CreateEmployeesComponent } from './employees/create-employees/create-employees.component';
 import{EmployeeService} from './employees/service/employee.service'
+import{CompanyService} from './companys/service/company.service'
 
 import {RouterModule, Routes} from '@angular/router';
 import { UpdateEmployeesComponent } from './employees/update-employees/update-employees.component';
@@ -17,6 +18,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //pagination
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ListCompanysComponent } from './companys/list-companys/list-companys.component';
+
+
 
 //each router maps a url path to a component
 //the 3rd route specifies the route to redirect to if the path
@@ -30,7 +34,9 @@ const appRoutes: Routes = [
   {path: 'employees/create', component: CreateEmployeesComponent},
   {path: 'employees/update/:id', component: UpdateEmployeesComponent},
   {path: 'employees/detail/:id', component: DetailEmployeesComponent},
-  {path: 'employees', redirectTo: 'employees/list', pathMatch: 'full'}
+  {path: 'employees', redirectTo: 'employees/list', pathMatch: 'full'},
+
+  {path: 'owner', component: ListCompanysComponent},
 ];
 
 @NgModule({
@@ -40,6 +46,7 @@ const appRoutes: Routes = [
     CreateEmployeesComponent,
     UpdateEmployeesComponent,
     DetailEmployeesComponent,
+    ListCompanysComponent,
   ],
   imports: [
     BrowserModule,   
@@ -51,7 +58,7 @@ const appRoutes: Routes = [
     Ng2SearchPipeModule,
     NgxPaginationModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, CompanyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
